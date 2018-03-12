@@ -20,117 +20,159 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "CloudSearch" :: String
-
 
 -- | <p>Creates a new search domain.</p>
 createDomain :: forall eff. CreateDomainRequest -> Aff (exception :: EXCEPTION | eff) CreateDomainResponse
-createDomain = Request.request serviceName "createDomain" 
+createDomain = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "createDomain"
 
 
 -- | <p>Configures an <code>IndexField</code> for the search domain. Used to create new fields and modify existing ones. If the field exists, the new configuration replaces the old one. You can configure a maximum of 200 index fields.</p>
 defineIndexField :: forall eff. DefineIndexFieldRequest -> Aff (exception :: EXCEPTION | eff) DefineIndexFieldResponse
-defineIndexField = Request.request serviceName "defineIndexField" 
+defineIndexField = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "defineIndexField"
 
 
 -- | <p>Configures a <code>RankExpression</code> for the search domain. Used to create new rank expressions and modify existing ones. If the expression exists, the new configuration replaces the old one. You can configure a maximum of 50 rank expressions.</p>
 defineRankExpression :: forall eff. DefineRankExpressionRequest -> Aff (exception :: EXCEPTION | eff) DefineRankExpressionResponse
-defineRankExpression = Request.request serviceName "defineRankExpression" 
+defineRankExpression = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "defineRankExpression"
 
 
 -- | <p>Permanently deletes a search domain and all of its data.</p>
 deleteDomain :: forall eff. DeleteDomainRequest -> Aff (exception :: EXCEPTION | eff) DeleteDomainResponse
-deleteDomain = Request.request serviceName "deleteDomain" 
+deleteDomain = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "deleteDomain"
 
 
 -- | <p>Removes an <code>IndexField</code> from the search domain.</p>
 deleteIndexField :: forall eff. DeleteIndexFieldRequest -> Aff (exception :: EXCEPTION | eff) DeleteIndexFieldResponse
-deleteIndexField = Request.request serviceName "deleteIndexField" 
+deleteIndexField = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "deleteIndexField"
 
 
 -- | <p>Removes a <code>RankExpression</code> from the search domain.</p>
 deleteRankExpression :: forall eff. DeleteRankExpressionRequest -> Aff (exception :: EXCEPTION | eff) DeleteRankExpressionResponse
-deleteRankExpression = Request.request serviceName "deleteRankExpression" 
+deleteRankExpression = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "deleteRankExpression"
 
 
 -- | <p>Gets the availability options configured for a domain. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html" target="_blank">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 describeAvailabilityOptions :: forall eff. DescribeAvailabilityOptionsRequest -> Aff (exception :: EXCEPTION | eff) DescribeAvailabilityOptionsResponse
-describeAvailabilityOptions = Request.request serviceName "describeAvailabilityOptions" 
+describeAvailabilityOptions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeAvailabilityOptions"
 
 
 -- | <p>Gets the default search field configured for the search domain.</p>
 describeDefaultSearchField :: forall eff. DescribeDefaultSearchFieldRequest -> Aff (exception :: EXCEPTION | eff) DescribeDefaultSearchFieldResponse
-describeDefaultSearchField = Request.request serviceName "describeDefaultSearchField" 
+describeDefaultSearchField = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeDefaultSearchField"
 
 
 -- | <p>Gets information about the search domains owned by this account. Can be limited to specific domains. Shows all domains by default.</p>
 describeDomains :: forall eff. DescribeDomainsRequest -> Aff (exception :: EXCEPTION | eff) DescribeDomainsResponse
-describeDomains = Request.request serviceName "describeDomains" 
+describeDomains = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeDomains"
 
 
 -- | <p>Gets information about the index fields configured for the search domain. Can be limited to specific fields by name. Shows all fields by default.</p>
 describeIndexFields :: forall eff. DescribeIndexFieldsRequest -> Aff (exception :: EXCEPTION | eff) DescribeIndexFieldsResponse
-describeIndexFields = Request.request serviceName "describeIndexFields" 
+describeIndexFields = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeIndexFields"
 
 
 -- | <p>Gets the rank expressions configured for the search domain. Can be limited to specific rank expressions by name. Shows all rank expressions by default. </p>
 describeRankExpressions :: forall eff. DescribeRankExpressionsRequest -> Aff (exception :: EXCEPTION | eff) DescribeRankExpressionsResponse
-describeRankExpressions = Request.request serviceName "describeRankExpressions" 
+describeRankExpressions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeRankExpressions"
 
 
 -- | <p>Gets information about the resource-based policies that control access to the domain's document and search services.</p>
 describeServiceAccessPolicies :: forall eff. DescribeServiceAccessPoliciesRequest -> Aff (exception :: EXCEPTION | eff) DescribeServiceAccessPoliciesResponse
-describeServiceAccessPolicies = Request.request serviceName "describeServiceAccessPolicies" 
+describeServiceAccessPolicies = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeServiceAccessPolicies"
 
 
 -- | <p>Gets the stemming dictionary configured for the search domain.</p>
 describeStemmingOptions :: forall eff. DescribeStemmingOptionsRequest -> Aff (exception :: EXCEPTION | eff) DescribeStemmingOptionsResponse
-describeStemmingOptions = Request.request serviceName "describeStemmingOptions" 
+describeStemmingOptions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeStemmingOptions"
 
 
 -- | <p>Gets the stopwords configured for the search domain.</p>
 describeStopwordOptions :: forall eff. DescribeStopwordOptionsRequest -> Aff (exception :: EXCEPTION | eff) DescribeStopwordOptionsResponse
-describeStopwordOptions = Request.request serviceName "describeStopwordOptions" 
+describeStopwordOptions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeStopwordOptions"
 
 
 -- | <p>Gets the synonym dictionary configured for the search domain.</p>
 describeSynonymOptions :: forall eff. DescribeSynonymOptionsRequest -> Aff (exception :: EXCEPTION | eff) DescribeSynonymOptionsResponse
-describeSynonymOptions = Request.request serviceName "describeSynonymOptions" 
+describeSynonymOptions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "describeSynonymOptions"
 
 
 -- | <p>Tells the search domain to start indexing its documents using the latest text processing options and <code>IndexFields</code>. This operation must be invoked to make options whose <a>OptionStatus</a> has <code>OptionState</code> of <code>RequiresIndexDocuments</code> visible in search results.</p>
 indexDocuments :: forall eff. IndexDocumentsRequest -> Aff (exception :: EXCEPTION | eff) IndexDocumentsResponse
-indexDocuments = Request.request serviceName "indexDocuments" 
+indexDocuments = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "indexDocuments"
 
 
 -- | <p>Configures the availability options for a domain. Enabling the Multi-AZ option expands an Amazon CloudSearch domain to an additional Availability Zone in the same Region to increase fault tolerance in the event of a service disruption. Changes to the Multi-AZ option can take about half an hour to become active. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html" target="_blank">Configuring Availability Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
 updateAvailabilityOptions :: forall eff. UpdateAvailabilityOptionsRequest -> Aff (exception :: EXCEPTION | eff) UpdateAvailabilityOptionsResponse
-updateAvailabilityOptions = Request.request serviceName "updateAvailabilityOptions" 
+updateAvailabilityOptions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "updateAvailabilityOptions"
 
 
 -- | <p>Configures the default search field for the search domain. The default search field is the text field that is searched when a search request does not specify which fields to search. By default, it is configured to include the contents of all of the domain's text fields. </p>
 updateDefaultSearchField :: forall eff. UpdateDefaultSearchFieldRequest -> Aff (exception :: EXCEPTION | eff) UpdateDefaultSearchFieldResponse
-updateDefaultSearchField = Request.request serviceName "updateDefaultSearchField" 
+updateDefaultSearchField = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "updateDefaultSearchField"
 
 
 -- | <p>Configures the policies that control access to the domain's document and search services. The maximum size of an access policy document is 100 KB.</p>
 updateServiceAccessPolicies :: forall eff. UpdateServiceAccessPoliciesRequest -> Aff (exception :: EXCEPTION | eff) UpdateServiceAccessPoliciesResponse
-updateServiceAccessPolicies = Request.request serviceName "updateServiceAccessPolicies" 
+updateServiceAccessPolicies = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "updateServiceAccessPolicies"
 
 
 -- | <p>Configures a stemming dictionary for the search domain. The stemming dictionary is used during indexing and when processing search requests. The maximum size of the stemming dictionary is 500 KB.</p>
 updateStemmingOptions :: forall eff. UpdateStemmingOptionsRequest -> Aff (exception :: EXCEPTION | eff) UpdateStemmingOptionsResponse
-updateStemmingOptions = Request.request serviceName "updateStemmingOptions" 
+updateStemmingOptions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "updateStemmingOptions"
 
 
 -- | <p>Configures stopwords for the search domain. Stopwords are used during indexing and when processing search requests. The maximum size of the stopwords dictionary is 10 KB.</p>
 updateStopwordOptions :: forall eff. UpdateStopwordOptionsRequest -> Aff (exception :: EXCEPTION | eff) UpdateStopwordOptionsResponse
-updateStopwordOptions = Request.request serviceName "updateStopwordOptions" 
+updateStopwordOptions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "updateStopwordOptions"
 
 
 -- | <p>Configures a synonym dictionary for the search domain. The synonym dictionary is used during indexing to configure mappings for terms that occur in text fields. The maximum size of the synonym dictionary is 100 KB. </p>
 updateSynonymOptions :: forall eff. UpdateSynonymOptionsRequest -> Aff (exception :: EXCEPTION | eff) UpdateSynonymOptionsResponse
-updateSynonymOptions = Request.request serviceName "updateSynonymOptions" 
+updateSynonymOptions = Request.request service method  where
+    service = Request.ServiceName "CloudSearch"
+    method = Request.MethodName "updateSynonymOptions"
 
 
 -- | <p>A <code>PolicyDocument</code> that specifies access policies for the search domain's services, and the current status of those policies.</p>
