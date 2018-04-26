@@ -96,7 +96,7 @@ Constructs AvailabilityOptionsStatus's fields from required parameters
 
 ``` purescript
 newtype BaseException
-  = BaseException { "Code" :: NullOrUndefined (ErrorCode), "Message" :: NullOrUndefined (ErrorMessage) }
+  = BaseException { "Code" :: Maybe (ErrorCode), "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>An error occurred while processing the request.</p>
@@ -121,7 +121,7 @@ Constructs BaseException from required parameters
 #### `newBaseException'`
 
 ``` purescript
-newBaseException' :: ({ "Code" :: NullOrUndefined (ErrorCode), "Message" :: NullOrUndefined (ErrorMessage) } -> { "Code" :: NullOrUndefined (ErrorCode), "Message" :: NullOrUndefined (ErrorMessage) }) -> BaseException
+newBaseException' :: ({ "Code" :: Maybe (ErrorCode), "Message" :: Maybe (ErrorMessage) } -> { "Code" :: Maybe (ErrorCode), "Message" :: Maybe (ErrorMessage) }) -> BaseException
 ```
 
 Constructs BaseException's fields from required parameters
@@ -162,7 +162,7 @@ Constructs CreateDomainRequest's fields from required parameters
 
 ``` purescript
 newtype CreateDomainResponse
-  = CreateDomainResponse { "DomainStatus" :: NullOrUndefined (DomainStatus) }
+  = CreateDomainResponse { "DomainStatus" :: Maybe (DomainStatus) }
 ```
 
 <p>A response message that contains the status of a newly created domain.</p>
@@ -187,7 +187,7 @@ Constructs CreateDomainResponse from required parameters
 #### `newCreateDomainResponse'`
 
 ``` purescript
-newCreateDomainResponse' :: ({ "DomainStatus" :: NullOrUndefined (DomainStatus) } -> { "DomainStatus" :: NullOrUndefined (DomainStatus) }) -> CreateDomainResponse
+newCreateDomainResponse' :: ({ "DomainStatus" :: Maybe (DomainStatus) } -> { "DomainStatus" :: Maybe (DomainStatus) }) -> CreateDomainResponse
 ```
 
 Constructs CreateDomainResponse's fields from required parameters
@@ -394,7 +394,7 @@ Constructs DeleteDomainRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteDomainResponse
-  = DeleteDomainResponse { "DomainStatus" :: NullOrUndefined (DomainStatus) }
+  = DeleteDomainResponse { "DomainStatus" :: Maybe (DomainStatus) }
 ```
 
 <p>A response message that contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.</p>
@@ -419,7 +419,7 @@ Constructs DeleteDomainResponse from required parameters
 #### `newDeleteDomainResponse'`
 
 ``` purescript
-newDeleteDomainResponse' :: ({ "DomainStatus" :: NullOrUndefined (DomainStatus) } -> { "DomainStatus" :: NullOrUndefined (DomainStatus) }) -> DeleteDomainResponse
+newDeleteDomainResponse' :: ({ "DomainStatus" :: Maybe (DomainStatus) } -> { "DomainStatus" :: Maybe (DomainStatus) }) -> DeleteDomainResponse
 ```
 
 Constructs DeleteDomainResponse's fields from required parameters
@@ -594,7 +594,7 @@ Constructs DescribeAvailabilityOptionsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeAvailabilityOptionsResponse
-  = DescribeAvailabilityOptionsResponse { "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) }
+  = DescribeAvailabilityOptionsResponse { "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) }
 ```
 
 <p>The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. </p>
@@ -619,7 +619,7 @@ Constructs DescribeAvailabilityOptionsResponse from required parameters
 #### `newDescribeAvailabilityOptionsResponse'`
 
 ``` purescript
-newDescribeAvailabilityOptionsResponse' :: ({ "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) } -> { "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) }) -> DescribeAvailabilityOptionsResponse
+newDescribeAvailabilityOptionsResponse' :: ({ "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) } -> { "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) }) -> DescribeAvailabilityOptionsResponse
 ```
 
 Constructs DescribeAvailabilityOptionsResponse's fields from required parameters
@@ -694,7 +694,7 @@ Constructs DescribeDefaultSearchFieldResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeDomainsRequest
-  = DescribeDomainsRequest { "DomainNames" :: NullOrUndefined (DomainNameList) }
+  = DescribeDomainsRequest { "DomainNames" :: Maybe (DomainNameList) }
 ```
 
 ##### Instances
@@ -717,7 +717,7 @@ Constructs DescribeDomainsRequest from required parameters
 #### `newDescribeDomainsRequest'`
 
 ``` purescript
-newDescribeDomainsRequest' :: ({ "DomainNames" :: NullOrUndefined (DomainNameList) } -> { "DomainNames" :: NullOrUndefined (DomainNameList) }) -> DescribeDomainsRequest
+newDescribeDomainsRequest' :: ({ "DomainNames" :: Maybe (DomainNameList) } -> { "DomainNames" :: Maybe (DomainNameList) }) -> DescribeDomainsRequest
 ```
 
 Constructs DescribeDomainsRequest's fields from required parameters
@@ -760,7 +760,7 @@ Constructs DescribeDomainsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeIndexFieldsRequest
-  = DescribeIndexFieldsRequest { "DomainName" :: DomainName, "FieldNames" :: NullOrUndefined (FieldNameList) }
+  = DescribeIndexFieldsRequest { "DomainName" :: DomainName, "FieldNames" :: Maybe (FieldNameList) }
 ```
 
 ##### Instances
@@ -783,7 +783,7 @@ Constructs DescribeIndexFieldsRequest from required parameters
 #### `newDescribeIndexFieldsRequest'`
 
 ``` purescript
-newDescribeIndexFieldsRequest' :: DomainName -> ({ "DomainName" :: DomainName, "FieldNames" :: NullOrUndefined (FieldNameList) } -> { "DomainName" :: DomainName, "FieldNames" :: NullOrUndefined (FieldNameList) }) -> DescribeIndexFieldsRequest
+newDescribeIndexFieldsRequest' :: DomainName -> ({ "DomainName" :: DomainName, "FieldNames" :: Maybe (FieldNameList) } -> { "DomainName" :: DomainName, "FieldNames" :: Maybe (FieldNameList) }) -> DescribeIndexFieldsRequest
 ```
 
 Constructs DescribeIndexFieldsRequest's fields from required parameters
@@ -826,7 +826,7 @@ Constructs DescribeIndexFieldsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeRankExpressionsRequest
-  = DescribeRankExpressionsRequest { "DomainName" :: DomainName, "RankNames" :: NullOrUndefined (FieldNameList) }
+  = DescribeRankExpressionsRequest { "DomainName" :: DomainName, "RankNames" :: Maybe (FieldNameList) }
 ```
 
 ##### Instances
@@ -849,7 +849,7 @@ Constructs DescribeRankExpressionsRequest from required parameters
 #### `newDescribeRankExpressionsRequest'`
 
 ``` purescript
-newDescribeRankExpressionsRequest' :: DomainName -> ({ "DomainName" :: DomainName, "RankNames" :: NullOrUndefined (FieldNameList) } -> { "DomainName" :: DomainName, "RankNames" :: NullOrUndefined (FieldNameList) }) -> DescribeRankExpressionsRequest
+newDescribeRankExpressionsRequest' :: DomainName -> ({ "DomainName" :: DomainName, "RankNames" :: Maybe (FieldNameList) } -> { "DomainName" :: DomainName, "RankNames" :: Maybe (FieldNameList) }) -> DescribeRankExpressionsRequest
 ```
 
 Constructs DescribeRankExpressionsRequest's fields from required parameters
@@ -1244,7 +1244,7 @@ Encode DomainNameList
 
 ``` purescript
 newtype DomainStatus
-  = DomainStatus { "DomainId" :: DomainId, "DomainName" :: DomainName, "Created" :: NullOrUndefined (Boolean), "Deleted" :: NullOrUndefined (Boolean), "NumSearchableDocs" :: NullOrUndefined (DocumentCount), "DocService" :: NullOrUndefined (ServiceEndpoint), "SearchService" :: NullOrUndefined (ServiceEndpoint), "RequiresIndexDocuments" :: Boolean, "Processing" :: NullOrUndefined (Boolean), "SearchInstanceType" :: NullOrUndefined (SearchInstanceType), "SearchPartitionCount" :: NullOrUndefined (PartitionCount), "SearchInstanceCount" :: NullOrUndefined (InstanceCount) }
+  = DomainStatus { "DomainId" :: DomainId, "DomainName" :: DomainName, "Created" :: Maybe (Boolean), "Deleted" :: Maybe (Boolean), "NumSearchableDocs" :: Maybe (DocumentCount), "DocService" :: Maybe (ServiceEndpoint), "SearchService" :: Maybe (ServiceEndpoint), "RequiresIndexDocuments" :: Boolean, "Processing" :: Maybe (Boolean), "SearchInstanceType" :: Maybe (SearchInstanceType), "SearchPartitionCount" :: Maybe (PartitionCount), "SearchInstanceCount" :: Maybe (InstanceCount) }
 ```
 
 <p>The current status of the search domain.</p>
@@ -1269,7 +1269,7 @@ Constructs DomainStatus from required parameters
 #### `newDomainStatus'`
 
 ``` purescript
-newDomainStatus' :: DomainId -> DomainName -> Boolean -> ({ "DomainId" :: DomainId, "DomainName" :: DomainName, "Created" :: NullOrUndefined (Boolean), "Deleted" :: NullOrUndefined (Boolean), "NumSearchableDocs" :: NullOrUndefined (DocumentCount), "DocService" :: NullOrUndefined (ServiceEndpoint), "SearchService" :: NullOrUndefined (ServiceEndpoint), "RequiresIndexDocuments" :: Boolean, "Processing" :: NullOrUndefined (Boolean), "SearchInstanceType" :: NullOrUndefined (SearchInstanceType), "SearchPartitionCount" :: NullOrUndefined (PartitionCount), "SearchInstanceCount" :: NullOrUndefined (InstanceCount) } -> { "DomainId" :: DomainId, "DomainName" :: DomainName, "Created" :: NullOrUndefined (Boolean), "Deleted" :: NullOrUndefined (Boolean), "NumSearchableDocs" :: NullOrUndefined (DocumentCount), "DocService" :: NullOrUndefined (ServiceEndpoint), "SearchService" :: NullOrUndefined (ServiceEndpoint), "RequiresIndexDocuments" :: Boolean, "Processing" :: NullOrUndefined (Boolean), "SearchInstanceType" :: NullOrUndefined (SearchInstanceType), "SearchPartitionCount" :: NullOrUndefined (PartitionCount), "SearchInstanceCount" :: NullOrUndefined (InstanceCount) }) -> DomainStatus
+newDomainStatus' :: DomainId -> DomainName -> Boolean -> ({ "DomainId" :: DomainId, "DomainName" :: DomainName, "Created" :: Maybe (Boolean), "Deleted" :: Maybe (Boolean), "NumSearchableDocs" :: Maybe (DocumentCount), "DocService" :: Maybe (ServiceEndpoint), "SearchService" :: Maybe (ServiceEndpoint), "RequiresIndexDocuments" :: Boolean, "Processing" :: Maybe (Boolean), "SearchInstanceType" :: Maybe (SearchInstanceType), "SearchPartitionCount" :: Maybe (PartitionCount), "SearchInstanceCount" :: Maybe (InstanceCount) } -> { "DomainId" :: DomainId, "DomainName" :: DomainName, "Created" :: Maybe (Boolean), "Deleted" :: Maybe (Boolean), "NumSearchableDocs" :: Maybe (DocumentCount), "DocService" :: Maybe (ServiceEndpoint), "SearchService" :: Maybe (ServiceEndpoint), "RequiresIndexDocuments" :: Boolean, "Processing" :: Maybe (Boolean), "SearchInstanceType" :: Maybe (SearchInstanceType), "SearchPartitionCount" :: Maybe (PartitionCount), "SearchInstanceCount" :: Maybe (InstanceCount) }) -> DomainStatus
 ```
 
 Constructs DomainStatus's fields from required parameters
@@ -1416,7 +1416,7 @@ Constructs IndexDocumentsRequest's fields from required parameters
 
 ``` purescript
 newtype IndexDocumentsResponse
-  = IndexDocumentsResponse { "FieldNames" :: NullOrUndefined (FieldNameList) }
+  = IndexDocumentsResponse { "FieldNames" :: Maybe (FieldNameList) }
 ```
 
 <p>The result of an <code>IndexDocuments</code> action.</p>
@@ -1441,7 +1441,7 @@ Constructs IndexDocumentsResponse from required parameters
 #### `newIndexDocumentsResponse'`
 
 ``` purescript
-newIndexDocumentsResponse' :: ({ "FieldNames" :: NullOrUndefined (FieldNameList) } -> { "FieldNames" :: NullOrUndefined (FieldNameList) }) -> IndexDocumentsResponse
+newIndexDocumentsResponse' :: ({ "FieldNames" :: Maybe (FieldNameList) } -> { "FieldNames" :: Maybe (FieldNameList) }) -> IndexDocumentsResponse
 ```
 
 Constructs IndexDocumentsResponse's fields from required parameters
@@ -1450,7 +1450,7 @@ Constructs IndexDocumentsResponse's fields from required parameters
 
 ``` purescript
 newtype IndexField
-  = IndexField { "IndexFieldName" :: FieldName, "IndexFieldType" :: IndexFieldType, "UIntOptions" :: NullOrUndefined (UIntOptions), "LiteralOptions" :: NullOrUndefined (LiteralOptions), "TextOptions" :: NullOrUndefined (TextOptions), "SourceAttributes" :: NullOrUndefined (SourceAttributeList) }
+  = IndexField { "IndexFieldName" :: FieldName, "IndexFieldType" :: IndexFieldType, "UIntOptions" :: Maybe (UIntOptions), "LiteralOptions" :: Maybe (LiteralOptions), "TextOptions" :: Maybe (TextOptions), "SourceAttributes" :: Maybe (SourceAttributeList) }
 ```
 
 <p>Defines a field in the index, including its name, type, and the source of its data. The <code>IndexFieldType</code> indicates which of the options will be present. It is invalid to specify options for a type other than the <code>IndexFieldType</code>.</p>
@@ -1475,7 +1475,7 @@ Constructs IndexField from required parameters
 #### `newIndexField'`
 
 ``` purescript
-newIndexField' :: FieldName -> IndexFieldType -> ({ "IndexFieldName" :: FieldName, "IndexFieldType" :: IndexFieldType, "UIntOptions" :: NullOrUndefined (UIntOptions), "LiteralOptions" :: NullOrUndefined (LiteralOptions), "TextOptions" :: NullOrUndefined (TextOptions), "SourceAttributes" :: NullOrUndefined (SourceAttributeList) } -> { "IndexFieldName" :: FieldName, "IndexFieldType" :: IndexFieldType, "UIntOptions" :: NullOrUndefined (UIntOptions), "LiteralOptions" :: NullOrUndefined (LiteralOptions), "TextOptions" :: NullOrUndefined (TextOptions), "SourceAttributes" :: NullOrUndefined (SourceAttributeList) }) -> IndexField
+newIndexField' :: FieldName -> IndexFieldType -> ({ "IndexFieldName" :: FieldName, "IndexFieldType" :: IndexFieldType, "UIntOptions" :: Maybe (UIntOptions), "LiteralOptions" :: Maybe (LiteralOptions), "TextOptions" :: Maybe (TextOptions), "SourceAttributes" :: Maybe (SourceAttributeList) } -> { "IndexFieldName" :: FieldName, "IndexFieldType" :: IndexFieldType, "UIntOptions" :: Maybe (UIntOptions), "LiteralOptions" :: Maybe (LiteralOptions), "TextOptions" :: Maybe (TextOptions), "SourceAttributes" :: Maybe (SourceAttributeList) }) -> IndexField
 ```
 
 Constructs IndexField's fields from required parameters
@@ -1640,7 +1640,7 @@ Encode LimitExceededException
 
 ``` purescript
 newtype LiteralOptions
-  = LiteralOptions { "DefaultValue" :: NullOrUndefined (FieldValue), "SearchEnabled" :: NullOrUndefined (Boolean), "FacetEnabled" :: NullOrUndefined (Boolean), "ResultEnabled" :: NullOrUndefined (Boolean) }
+  = LiteralOptions { "DefaultValue" :: Maybe (FieldValue), "SearchEnabled" :: Maybe (Boolean), "FacetEnabled" :: Maybe (Boolean), "ResultEnabled" :: Maybe (Boolean) }
 ```
 
 <p>Options that define a literal field in the search index.</p>
@@ -1665,7 +1665,7 @@ Constructs LiteralOptions from required parameters
 #### `newLiteralOptions'`
 
 ``` purescript
-newLiteralOptions' :: ({ "DefaultValue" :: NullOrUndefined (FieldValue), "SearchEnabled" :: NullOrUndefined (Boolean), "FacetEnabled" :: NullOrUndefined (Boolean), "ResultEnabled" :: NullOrUndefined (Boolean) } -> { "DefaultValue" :: NullOrUndefined (FieldValue), "SearchEnabled" :: NullOrUndefined (Boolean), "FacetEnabled" :: NullOrUndefined (Boolean), "ResultEnabled" :: NullOrUndefined (Boolean) }) -> LiteralOptions
+newLiteralOptions' :: ({ "DefaultValue" :: Maybe (FieldValue), "SearchEnabled" :: Maybe (Boolean), "FacetEnabled" :: Maybe (Boolean), "ResultEnabled" :: Maybe (Boolean) } -> { "DefaultValue" :: Maybe (FieldValue), "SearchEnabled" :: Maybe (Boolean), "FacetEnabled" :: Maybe (Boolean), "ResultEnabled" :: Maybe (Boolean) }) -> LiteralOptions
 ```
 
 Constructs LiteralOptions's fields from required parameters
@@ -1742,7 +1742,7 @@ Encode OptionState
 
 ``` purescript
 newtype OptionStatus
-  = OptionStatus { "CreationDate" :: UpdateTimestamp, "UpdateDate" :: UpdateTimestamp, "UpdateVersion" :: NullOrUndefined (UIntValue), "State" :: OptionState, "PendingDeletion" :: NullOrUndefined (Boolean) }
+  = OptionStatus { "CreationDate" :: UpdateTimestamp, "UpdateDate" :: UpdateTimestamp, "UpdateVersion" :: Maybe (UIntValue), "State" :: OptionState, "PendingDeletion" :: Maybe (Boolean) }
 ```
 
 <p>The status of an option, including when it was last updated and whether it is actively in use for searches.</p>
@@ -1767,7 +1767,7 @@ Constructs OptionStatus from required parameters
 #### `newOptionStatus'`
 
 ``` purescript
-newOptionStatus' :: UpdateTimestamp -> OptionState -> UpdateTimestamp -> ({ "CreationDate" :: UpdateTimestamp, "UpdateDate" :: UpdateTimestamp, "UpdateVersion" :: NullOrUndefined (UIntValue), "State" :: OptionState, "PendingDeletion" :: NullOrUndefined (Boolean) } -> { "CreationDate" :: UpdateTimestamp, "UpdateDate" :: UpdateTimestamp, "UpdateVersion" :: NullOrUndefined (UIntValue), "State" :: OptionState, "PendingDeletion" :: NullOrUndefined (Boolean) }) -> OptionStatus
+newOptionStatus' :: UpdateTimestamp -> OptionState -> UpdateTimestamp -> ({ "CreationDate" :: UpdateTimestamp, "UpdateDate" :: UpdateTimestamp, "UpdateVersion" :: Maybe (UIntValue), "State" :: OptionState, "PendingDeletion" :: Maybe (Boolean) } -> { "CreationDate" :: UpdateTimestamp, "UpdateDate" :: UpdateTimestamp, "UpdateVersion" :: Maybe (UIntValue), "State" :: OptionState, "PendingDeletion" :: Maybe (Boolean) }) -> OptionStatus
 ```
 
 Constructs OptionStatus's fields from required parameters
@@ -1912,7 +1912,7 @@ Encode SearchInstanceType
 
 ``` purescript
 newtype ServiceEndpoint
-  = ServiceEndpoint { "Arn" :: NullOrUndefined (Arn), "Endpoint" :: NullOrUndefined (ServiceUrl) }
+  = ServiceEndpoint { "Arn" :: Maybe (Arn), "Endpoint" :: Maybe (ServiceUrl) }
 ```
 
 <p>The endpoint to which service requests can be submitted, including the actual URL prefix for sending requests and the Amazon Resource Name (ARN) so the endpoint can be referenced in other API calls such as <a>UpdateServiceAccessPolicies</a>.</p>
@@ -1937,7 +1937,7 @@ Constructs ServiceEndpoint from required parameters
 #### `newServiceEndpoint'`
 
 ``` purescript
-newServiceEndpoint' :: ({ "Arn" :: NullOrUndefined (Arn), "Endpoint" :: NullOrUndefined (ServiceUrl) } -> { "Arn" :: NullOrUndefined (Arn), "Endpoint" :: NullOrUndefined (ServiceUrl) }) -> ServiceEndpoint
+newServiceEndpoint' :: ({ "Arn" :: Maybe (Arn), "Endpoint" :: Maybe (ServiceUrl) } -> { "Arn" :: Maybe (Arn), "Endpoint" :: Maybe (ServiceUrl) }) -> ServiceEndpoint
 ```
 
 Constructs ServiceEndpoint's fields from required parameters
@@ -1964,7 +1964,7 @@ Encode ServiceUrl
 
 ``` purescript
 newtype SourceAttribute
-  = SourceAttribute { "SourceDataFunction" :: SourceDataFunction, "SourceDataCopy" :: NullOrUndefined (SourceData), "SourceDataTrimTitle" :: NullOrUndefined (SourceDataTrimTitle), "SourceDataMap" :: NullOrUndefined (SourceDataMap) }
+  = SourceAttribute { "SourceDataFunction" :: SourceDataFunction, "SourceDataCopy" :: Maybe (SourceData), "SourceDataTrimTitle" :: Maybe (SourceDataTrimTitle), "SourceDataMap" :: Maybe (SourceDataMap) }
 ```
 
 <p>Identifies the source data for an index field. An optional data transformation can be applied to the source data when populating the index field. By default, the value of the source attribute is copied to the index field.</p>
@@ -1989,7 +1989,7 @@ Constructs SourceAttribute from required parameters
 #### `newSourceAttribute'`
 
 ``` purescript
-newSourceAttribute' :: SourceDataFunction -> ({ "SourceDataFunction" :: SourceDataFunction, "SourceDataCopy" :: NullOrUndefined (SourceData), "SourceDataTrimTitle" :: NullOrUndefined (SourceDataTrimTitle), "SourceDataMap" :: NullOrUndefined (SourceDataMap) } -> { "SourceDataFunction" :: SourceDataFunction, "SourceDataCopy" :: NullOrUndefined (SourceData), "SourceDataTrimTitle" :: NullOrUndefined (SourceDataTrimTitle), "SourceDataMap" :: NullOrUndefined (SourceDataMap) }) -> SourceAttribute
+newSourceAttribute' :: SourceDataFunction -> ({ "SourceDataFunction" :: SourceDataFunction, "SourceDataCopy" :: Maybe (SourceData), "SourceDataTrimTitle" :: Maybe (SourceDataTrimTitle), "SourceDataMap" :: Maybe (SourceDataMap) } -> { "SourceDataFunction" :: SourceDataFunction, "SourceDataCopy" :: Maybe (SourceData), "SourceDataTrimTitle" :: Maybe (SourceDataTrimTitle), "SourceDataMap" :: Maybe (SourceDataMap) }) -> SourceAttribute
 ```
 
 Constructs SourceAttribute's fields from required parameters
@@ -2014,7 +2014,7 @@ Encode SourceAttributeList
 
 ``` purescript
 newtype SourceData
-  = SourceData { "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue) }
+  = SourceData { "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue) }
 ```
 
 <p>The source attribute name and an optional default value to use if a document doesn't have an attribute of that name.</p>
@@ -2039,7 +2039,7 @@ Constructs SourceData from required parameters
 #### `newSourceData'`
 
 ``` purescript
-newSourceData' :: FieldName -> ({ "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue) } -> { "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue) }) -> SourceData
+newSourceData' :: FieldName -> ({ "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue) } -> { "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue) }) -> SourceData
 ```
 
 Constructs SourceData's fields from required parameters
@@ -2064,7 +2064,7 @@ Encode SourceDataFunction
 
 ``` purescript
 newtype SourceDataMap
-  = SourceDataMap { "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue), "Cases" :: NullOrUndefined (StringCaseMap) }
+  = SourceDataMap { "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue), "Cases" :: Maybe (StringCaseMap) }
 ```
 
 <p>Specifies how to map source attribute values to custom values when populating an <code>IndexField</code>.</p>
@@ -2089,7 +2089,7 @@ Constructs SourceDataMap from required parameters
 #### `newSourceDataMap'`
 
 ``` purescript
-newSourceDataMap' :: FieldName -> ({ "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue), "Cases" :: NullOrUndefined (StringCaseMap) } -> { "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue), "Cases" :: NullOrUndefined (StringCaseMap) }) -> SourceDataMap
+newSourceDataMap' :: FieldName -> ({ "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue), "Cases" :: Maybe (StringCaseMap) } -> { "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue), "Cases" :: Maybe (StringCaseMap) }) -> SourceDataMap
 ```
 
 Constructs SourceDataMap's fields from required parameters
@@ -2098,7 +2098,7 @@ Constructs SourceDataMap's fields from required parameters
 
 ``` purescript
 newtype SourceDataTrimTitle
-  = SourceDataTrimTitle { "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue), "Separator" :: NullOrUndefined (String), "Language" :: NullOrUndefined (Language) }
+  = SourceDataTrimTitle { "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue), "Separator" :: Maybe (String), "Language" :: Maybe (Language) }
 ```
 
 <p>Specifies how to trim common words from the beginning of a field to enable title sorting by that field.</p>
@@ -2123,7 +2123,7 @@ Constructs SourceDataTrimTitle from required parameters
 #### `newSourceDataTrimTitle'`
 
 ``` purescript
-newSourceDataTrimTitle' :: FieldName -> ({ "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue), "Separator" :: NullOrUndefined (String), "Language" :: NullOrUndefined (Language) } -> { "SourceName" :: FieldName, "DefaultValue" :: NullOrUndefined (FieldValue), "Separator" :: NullOrUndefined (String), "Language" :: NullOrUndefined (Language) }) -> SourceDataTrimTitle
+newSourceDataTrimTitle' :: FieldName -> ({ "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue), "Separator" :: Maybe (String), "Language" :: Maybe (Language) } -> { "SourceName" :: FieldName, "DefaultValue" :: Maybe (FieldValue), "Separator" :: Maybe (String), "Language" :: Maybe (Language) }) -> SourceDataTrimTitle
 ```
 
 Constructs SourceDataTrimTitle's fields from required parameters
@@ -2304,7 +2304,7 @@ Encode SynonymsDocument
 
 ``` purescript
 newtype TextOptions
-  = TextOptions { "DefaultValue" :: NullOrUndefined (FieldValue), "FacetEnabled" :: NullOrUndefined (Boolean), "ResultEnabled" :: NullOrUndefined (Boolean), "TextProcessor" :: NullOrUndefined (FieldName) }
+  = TextOptions { "DefaultValue" :: Maybe (FieldValue), "FacetEnabled" :: Maybe (Boolean), "ResultEnabled" :: Maybe (Boolean), "TextProcessor" :: Maybe (FieldName) }
 ```
 
 <p>Options that define a text field in the search index.</p>
@@ -2329,7 +2329,7 @@ Constructs TextOptions from required parameters
 #### `newTextOptions'`
 
 ``` purescript
-newTextOptions' :: ({ "DefaultValue" :: NullOrUndefined (FieldValue), "FacetEnabled" :: NullOrUndefined (Boolean), "ResultEnabled" :: NullOrUndefined (Boolean), "TextProcessor" :: NullOrUndefined (FieldName) } -> { "DefaultValue" :: NullOrUndefined (FieldValue), "FacetEnabled" :: NullOrUndefined (Boolean), "ResultEnabled" :: NullOrUndefined (Boolean), "TextProcessor" :: NullOrUndefined (FieldName) }) -> TextOptions
+newTextOptions' :: ({ "DefaultValue" :: Maybe (FieldValue), "FacetEnabled" :: Maybe (Boolean), "ResultEnabled" :: Maybe (Boolean), "TextProcessor" :: Maybe (FieldName) } -> { "DefaultValue" :: Maybe (FieldValue), "FacetEnabled" :: Maybe (Boolean), "ResultEnabled" :: Maybe (Boolean), "TextProcessor" :: Maybe (FieldName) }) -> TextOptions
 ```
 
 Constructs TextOptions's fields from required parameters
@@ -2338,7 +2338,7 @@ Constructs TextOptions's fields from required parameters
 
 ``` purescript
 newtype UIntOptions
-  = UIntOptions { "DefaultValue" :: NullOrUndefined (UIntValue) }
+  = UIntOptions { "DefaultValue" :: Maybe (UIntValue) }
 ```
 
 <p>Options that define a <code>uint</code> field in the search index.</p>
@@ -2363,7 +2363,7 @@ Constructs UIntOptions from required parameters
 #### `newUIntOptions'`
 
 ``` purescript
-newUIntOptions' :: ({ "DefaultValue" :: NullOrUndefined (UIntValue) } -> { "DefaultValue" :: NullOrUndefined (UIntValue) }) -> UIntOptions
+newUIntOptions' :: ({ "DefaultValue" :: Maybe (UIntValue) } -> { "DefaultValue" :: Maybe (UIntValue) }) -> UIntOptions
 ```
 
 Constructs UIntOptions's fields from required parameters
@@ -2422,7 +2422,7 @@ Constructs UpdateAvailabilityOptionsRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateAvailabilityOptionsResponse
-  = UpdateAvailabilityOptionsResponse { "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) }
+  = UpdateAvailabilityOptionsResponse { "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) }
 ```
 
 <p>The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. </p>
@@ -2447,7 +2447,7 @@ Constructs UpdateAvailabilityOptionsResponse from required parameters
 #### `newUpdateAvailabilityOptionsResponse'`
 
 ``` purescript
-newUpdateAvailabilityOptionsResponse' :: ({ "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) } -> { "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) }) -> UpdateAvailabilityOptionsResponse
+newUpdateAvailabilityOptionsResponse' :: ({ "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) } -> { "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) }) -> UpdateAvailabilityOptionsResponse
 ```
 
 Constructs UpdateAvailabilityOptionsResponse's fields from required parameters

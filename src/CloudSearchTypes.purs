@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -74,8 +73,8 @@ newAvailabilityOptionsStatus' _Options _Status customize = (AvailabilityOptionsS
 
 -- | <p>An error occurred while processing the request.</p>
 newtype BaseException = BaseException 
-  { "Code" :: NullOrUndefined (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  { "Code" :: Maybe (ErrorCode)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeBaseException :: Newtype BaseException _
 derive instance repGenericBaseException :: Generic BaseException _
@@ -85,12 +84,12 @@ instance encodeBaseException :: Encode BaseException where encode = genericEncod
 
 -- | Constructs BaseException from required parameters
 newBaseException :: BaseException
-newBaseException  = BaseException { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newBaseException  = BaseException { "Code": Nothing, "Message": Nothing }
 
 -- | Constructs BaseException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBaseException' :: ( { "Code" :: NullOrUndefined (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"Code" :: NullOrUndefined (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> BaseException
-newBaseException'  customize = (BaseException <<< customize) { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newBaseException' :: ( { "Code" :: Maybe (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"Code" :: Maybe (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> BaseException
+newBaseException'  customize = (BaseException <<< customize) { "Code": Nothing, "Message": Nothing }
 
 
 
@@ -116,7 +115,7 @@ newCreateDomainRequest' _DomainName customize = (CreateDomainRequest <<< customi
 
 -- | <p>A response message that contains the status of a newly created domain.</p>
 newtype CreateDomainResponse = CreateDomainResponse 
-  { "DomainStatus" :: NullOrUndefined (DomainStatus)
+  { "DomainStatus" :: Maybe (DomainStatus)
   }
 derive instance newtypeCreateDomainResponse :: Newtype CreateDomainResponse _
 derive instance repGenericCreateDomainResponse :: Generic CreateDomainResponse _
@@ -126,12 +125,12 @@ instance encodeCreateDomainResponse :: Encode CreateDomainResponse where encode 
 
 -- | Constructs CreateDomainResponse from required parameters
 newCreateDomainResponse :: CreateDomainResponse
-newCreateDomainResponse  = CreateDomainResponse { "DomainStatus": (NullOrUndefined Nothing) }
+newCreateDomainResponse  = CreateDomainResponse { "DomainStatus": Nothing }
 
 -- | Constructs CreateDomainResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateDomainResponse' :: ( { "DomainStatus" :: NullOrUndefined (DomainStatus) } -> {"DomainStatus" :: NullOrUndefined (DomainStatus) } ) -> CreateDomainResponse
-newCreateDomainResponse'  customize = (CreateDomainResponse <<< customize) { "DomainStatus": (NullOrUndefined Nothing) }
+newCreateDomainResponse' :: ( { "DomainStatus" :: Maybe (DomainStatus) } -> {"DomainStatus" :: Maybe (DomainStatus) } ) -> CreateDomainResponse
+newCreateDomainResponse'  customize = (CreateDomainResponse <<< customize) { "DomainStatus": Nothing }
 
 
 
@@ -263,7 +262,7 @@ newDeleteDomainRequest' _DomainName customize = (DeleteDomainRequest <<< customi
 
 -- | <p>A response message that contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.</p>
 newtype DeleteDomainResponse = DeleteDomainResponse 
-  { "DomainStatus" :: NullOrUndefined (DomainStatus)
+  { "DomainStatus" :: Maybe (DomainStatus)
   }
 derive instance newtypeDeleteDomainResponse :: Newtype DeleteDomainResponse _
 derive instance repGenericDeleteDomainResponse :: Generic DeleteDomainResponse _
@@ -273,12 +272,12 @@ instance encodeDeleteDomainResponse :: Encode DeleteDomainResponse where encode 
 
 -- | Constructs DeleteDomainResponse from required parameters
 newDeleteDomainResponse :: DeleteDomainResponse
-newDeleteDomainResponse  = DeleteDomainResponse { "DomainStatus": (NullOrUndefined Nothing) }
+newDeleteDomainResponse  = DeleteDomainResponse { "DomainStatus": Nothing }
 
 -- | Constructs DeleteDomainResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteDomainResponse' :: ( { "DomainStatus" :: NullOrUndefined (DomainStatus) } -> {"DomainStatus" :: NullOrUndefined (DomainStatus) } ) -> DeleteDomainResponse
-newDeleteDomainResponse'  customize = (DeleteDomainResponse <<< customize) { "DomainStatus": (NullOrUndefined Nothing) }
+newDeleteDomainResponse' :: ( { "DomainStatus" :: Maybe (DomainStatus) } -> {"DomainStatus" :: Maybe (DomainStatus) } ) -> DeleteDomainResponse
+newDeleteDomainResponse'  customize = (DeleteDomainResponse <<< customize) { "DomainStatus": Nothing }
 
 
 
@@ -389,7 +388,7 @@ newDescribeAvailabilityOptionsRequest' _DomainName customize = (DescribeAvailabi
 
 -- | <p>The result of a <code>DescribeAvailabilityOptions</code> request. Indicates whether or not the Multi-AZ option is enabled for the domain specified in the request. </p>
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse 
-  { "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus)
+  { "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus)
   }
 derive instance newtypeDescribeAvailabilityOptionsResponse :: Newtype DescribeAvailabilityOptionsResponse _
 derive instance repGenericDescribeAvailabilityOptionsResponse :: Generic DescribeAvailabilityOptionsResponse _
@@ -399,12 +398,12 @@ instance encodeDescribeAvailabilityOptionsResponse :: Encode DescribeAvailabilit
 
 -- | Constructs DescribeAvailabilityOptionsResponse from required parameters
 newDescribeAvailabilityOptionsResponse :: DescribeAvailabilityOptionsResponse
-newDescribeAvailabilityOptionsResponse  = DescribeAvailabilityOptionsResponse { "AvailabilityOptions": (NullOrUndefined Nothing) }
+newDescribeAvailabilityOptionsResponse  = DescribeAvailabilityOptionsResponse { "AvailabilityOptions": Nothing }
 
 -- | Constructs DescribeAvailabilityOptionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeAvailabilityOptionsResponse' :: ( { "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) } -> {"AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) } ) -> DescribeAvailabilityOptionsResponse
-newDescribeAvailabilityOptionsResponse'  customize = (DescribeAvailabilityOptionsResponse <<< customize) { "AvailabilityOptions": (NullOrUndefined Nothing) }
+newDescribeAvailabilityOptionsResponse' :: ( { "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) } -> {"AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) } ) -> DescribeAvailabilityOptionsResponse
+newDescribeAvailabilityOptionsResponse'  customize = (DescribeAvailabilityOptionsResponse <<< customize) { "AvailabilityOptions": Nothing }
 
 
 
@@ -450,7 +449,7 @@ newDescribeDefaultSearchFieldResponse' _DefaultSearchField customize = (Describe
 
 
 newtype DescribeDomainsRequest = DescribeDomainsRequest 
-  { "DomainNames" :: NullOrUndefined (DomainNameList)
+  { "DomainNames" :: Maybe (DomainNameList)
   }
 derive instance newtypeDescribeDomainsRequest :: Newtype DescribeDomainsRequest _
 derive instance repGenericDescribeDomainsRequest :: Generic DescribeDomainsRequest _
@@ -460,12 +459,12 @@ instance encodeDescribeDomainsRequest :: Encode DescribeDomainsRequest where enc
 
 -- | Constructs DescribeDomainsRequest from required parameters
 newDescribeDomainsRequest :: DescribeDomainsRequest
-newDescribeDomainsRequest  = DescribeDomainsRequest { "DomainNames": (NullOrUndefined Nothing) }
+newDescribeDomainsRequest  = DescribeDomainsRequest { "DomainNames": Nothing }
 
 -- | Constructs DescribeDomainsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeDomainsRequest' :: ( { "DomainNames" :: NullOrUndefined (DomainNameList) } -> {"DomainNames" :: NullOrUndefined (DomainNameList) } ) -> DescribeDomainsRequest
-newDescribeDomainsRequest'  customize = (DescribeDomainsRequest <<< customize) { "DomainNames": (NullOrUndefined Nothing) }
+newDescribeDomainsRequest' :: ( { "DomainNames" :: Maybe (DomainNameList) } -> {"DomainNames" :: Maybe (DomainNameList) } ) -> DescribeDomainsRequest
+newDescribeDomainsRequest'  customize = (DescribeDomainsRequest <<< customize) { "DomainNames": Nothing }
 
 
 
@@ -492,7 +491,7 @@ newDescribeDomainsResponse' _DomainStatusList customize = (DescribeDomainsRespon
 
 newtype DescribeIndexFieldsRequest = DescribeIndexFieldsRequest 
   { "DomainName" :: (DomainName)
-  , "FieldNames" :: NullOrUndefined (FieldNameList)
+  , "FieldNames" :: Maybe (FieldNameList)
   }
 derive instance newtypeDescribeIndexFieldsRequest :: Newtype DescribeIndexFieldsRequest _
 derive instance repGenericDescribeIndexFieldsRequest :: Generic DescribeIndexFieldsRequest _
@@ -502,12 +501,12 @@ instance encodeDescribeIndexFieldsRequest :: Encode DescribeIndexFieldsRequest w
 
 -- | Constructs DescribeIndexFieldsRequest from required parameters
 newDescribeIndexFieldsRequest :: DomainName -> DescribeIndexFieldsRequest
-newDescribeIndexFieldsRequest _DomainName = DescribeIndexFieldsRequest { "DomainName": _DomainName, "FieldNames": (NullOrUndefined Nothing) }
+newDescribeIndexFieldsRequest _DomainName = DescribeIndexFieldsRequest { "DomainName": _DomainName, "FieldNames": Nothing }
 
 -- | Constructs DescribeIndexFieldsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeIndexFieldsRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "FieldNames" :: NullOrUndefined (FieldNameList) } -> {"DomainName" :: (DomainName) , "FieldNames" :: NullOrUndefined (FieldNameList) } ) -> DescribeIndexFieldsRequest
-newDescribeIndexFieldsRequest' _DomainName customize = (DescribeIndexFieldsRequest <<< customize) { "DomainName": _DomainName, "FieldNames": (NullOrUndefined Nothing) }
+newDescribeIndexFieldsRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "FieldNames" :: Maybe (FieldNameList) } -> {"DomainName" :: (DomainName) , "FieldNames" :: Maybe (FieldNameList) } ) -> DescribeIndexFieldsRequest
+newDescribeIndexFieldsRequest' _DomainName customize = (DescribeIndexFieldsRequest <<< customize) { "DomainName": _DomainName, "FieldNames": Nothing }
 
 
 
@@ -534,7 +533,7 @@ newDescribeIndexFieldsResponse' _IndexFields customize = (DescribeIndexFieldsRes
 
 newtype DescribeRankExpressionsRequest = DescribeRankExpressionsRequest 
   { "DomainName" :: (DomainName)
-  , "RankNames" :: NullOrUndefined (FieldNameList)
+  , "RankNames" :: Maybe (FieldNameList)
   }
 derive instance newtypeDescribeRankExpressionsRequest :: Newtype DescribeRankExpressionsRequest _
 derive instance repGenericDescribeRankExpressionsRequest :: Generic DescribeRankExpressionsRequest _
@@ -544,12 +543,12 @@ instance encodeDescribeRankExpressionsRequest :: Encode DescribeRankExpressionsR
 
 -- | Constructs DescribeRankExpressionsRequest from required parameters
 newDescribeRankExpressionsRequest :: DomainName -> DescribeRankExpressionsRequest
-newDescribeRankExpressionsRequest _DomainName = DescribeRankExpressionsRequest { "DomainName": _DomainName, "RankNames": (NullOrUndefined Nothing) }
+newDescribeRankExpressionsRequest _DomainName = DescribeRankExpressionsRequest { "DomainName": _DomainName, "RankNames": Nothing }
 
 -- | Constructs DescribeRankExpressionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeRankExpressionsRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "RankNames" :: NullOrUndefined (FieldNameList) } -> {"DomainName" :: (DomainName) , "RankNames" :: NullOrUndefined (FieldNameList) } ) -> DescribeRankExpressionsRequest
-newDescribeRankExpressionsRequest' _DomainName customize = (DescribeRankExpressionsRequest <<< customize) { "DomainName": _DomainName, "RankNames": (NullOrUndefined Nothing) }
+newDescribeRankExpressionsRequest' :: DomainName -> ( { "DomainName" :: (DomainName) , "RankNames" :: Maybe (FieldNameList) } -> {"DomainName" :: (DomainName) , "RankNames" :: Maybe (FieldNameList) } ) -> DescribeRankExpressionsRequest
+newDescribeRankExpressionsRequest' _DomainName customize = (DescribeRankExpressionsRequest <<< customize) { "DomainName": _DomainName, "RankNames": Nothing }
 
 
 
@@ -791,16 +790,16 @@ instance encodeDomainNameList :: Encode DomainNameList where encode = genericEnc
 newtype DomainStatus = DomainStatus 
   { "DomainId" :: (DomainId)
   , "DomainName" :: (DomainName)
-  , "Created" :: NullOrUndefined (Boolean)
-  , "Deleted" :: NullOrUndefined (Boolean)
-  , "NumSearchableDocs" :: NullOrUndefined (DocumentCount)
-  , "DocService" :: NullOrUndefined (ServiceEndpoint)
-  , "SearchService" :: NullOrUndefined (ServiceEndpoint)
+  , "Created" :: Maybe (Boolean)
+  , "Deleted" :: Maybe (Boolean)
+  , "NumSearchableDocs" :: Maybe (DocumentCount)
+  , "DocService" :: Maybe (ServiceEndpoint)
+  , "SearchService" :: Maybe (ServiceEndpoint)
   , "RequiresIndexDocuments" :: (Boolean)
-  , "Processing" :: NullOrUndefined (Boolean)
-  , "SearchInstanceType" :: NullOrUndefined (SearchInstanceType)
-  , "SearchPartitionCount" :: NullOrUndefined (PartitionCount)
-  , "SearchInstanceCount" :: NullOrUndefined (InstanceCount)
+  , "Processing" :: Maybe (Boolean)
+  , "SearchInstanceType" :: Maybe (SearchInstanceType)
+  , "SearchPartitionCount" :: Maybe (PartitionCount)
+  , "SearchInstanceCount" :: Maybe (InstanceCount)
   }
 derive instance newtypeDomainStatus :: Newtype DomainStatus _
 derive instance repGenericDomainStatus :: Generic DomainStatus _
@@ -810,12 +809,12 @@ instance encodeDomainStatus :: Encode DomainStatus where encode = genericEncode 
 
 -- | Constructs DomainStatus from required parameters
 newDomainStatus :: DomainId -> DomainName -> Boolean -> DomainStatus
-newDomainStatus _DomainId _DomainName _RequiresIndexDocuments = DomainStatus { "DomainId": _DomainId, "DomainName": _DomainName, "RequiresIndexDocuments": _RequiresIndexDocuments, "Created": (NullOrUndefined Nothing), "Deleted": (NullOrUndefined Nothing), "DocService": (NullOrUndefined Nothing), "NumSearchableDocs": (NullOrUndefined Nothing), "Processing": (NullOrUndefined Nothing), "SearchInstanceCount": (NullOrUndefined Nothing), "SearchInstanceType": (NullOrUndefined Nothing), "SearchPartitionCount": (NullOrUndefined Nothing), "SearchService": (NullOrUndefined Nothing) }
+newDomainStatus _DomainId _DomainName _RequiresIndexDocuments = DomainStatus { "DomainId": _DomainId, "DomainName": _DomainName, "RequiresIndexDocuments": _RequiresIndexDocuments, "Created": Nothing, "Deleted": Nothing, "DocService": Nothing, "NumSearchableDocs": Nothing, "Processing": Nothing, "SearchInstanceCount": Nothing, "SearchInstanceType": Nothing, "SearchPartitionCount": Nothing, "SearchService": Nothing }
 
 -- | Constructs DomainStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDomainStatus' :: DomainId -> DomainName -> Boolean -> ( { "DomainId" :: (DomainId) , "DomainName" :: (DomainName) , "Created" :: NullOrUndefined (Boolean) , "Deleted" :: NullOrUndefined (Boolean) , "NumSearchableDocs" :: NullOrUndefined (DocumentCount) , "DocService" :: NullOrUndefined (ServiceEndpoint) , "SearchService" :: NullOrUndefined (ServiceEndpoint) , "RequiresIndexDocuments" :: (Boolean) , "Processing" :: NullOrUndefined (Boolean) , "SearchInstanceType" :: NullOrUndefined (SearchInstanceType) , "SearchPartitionCount" :: NullOrUndefined (PartitionCount) , "SearchInstanceCount" :: NullOrUndefined (InstanceCount) } -> {"DomainId" :: (DomainId) , "DomainName" :: (DomainName) , "Created" :: NullOrUndefined (Boolean) , "Deleted" :: NullOrUndefined (Boolean) , "NumSearchableDocs" :: NullOrUndefined (DocumentCount) , "DocService" :: NullOrUndefined (ServiceEndpoint) , "SearchService" :: NullOrUndefined (ServiceEndpoint) , "RequiresIndexDocuments" :: (Boolean) , "Processing" :: NullOrUndefined (Boolean) , "SearchInstanceType" :: NullOrUndefined (SearchInstanceType) , "SearchPartitionCount" :: NullOrUndefined (PartitionCount) , "SearchInstanceCount" :: NullOrUndefined (InstanceCount) } ) -> DomainStatus
-newDomainStatus' _DomainId _DomainName _RequiresIndexDocuments customize = (DomainStatus <<< customize) { "DomainId": _DomainId, "DomainName": _DomainName, "RequiresIndexDocuments": _RequiresIndexDocuments, "Created": (NullOrUndefined Nothing), "Deleted": (NullOrUndefined Nothing), "DocService": (NullOrUndefined Nothing), "NumSearchableDocs": (NullOrUndefined Nothing), "Processing": (NullOrUndefined Nothing), "SearchInstanceCount": (NullOrUndefined Nothing), "SearchInstanceType": (NullOrUndefined Nothing), "SearchPartitionCount": (NullOrUndefined Nothing), "SearchService": (NullOrUndefined Nothing) }
+newDomainStatus' :: DomainId -> DomainName -> Boolean -> ( { "DomainId" :: (DomainId) , "DomainName" :: (DomainName) , "Created" :: Maybe (Boolean) , "Deleted" :: Maybe (Boolean) , "NumSearchableDocs" :: Maybe (DocumentCount) , "DocService" :: Maybe (ServiceEndpoint) , "SearchService" :: Maybe (ServiceEndpoint) , "RequiresIndexDocuments" :: (Boolean) , "Processing" :: Maybe (Boolean) , "SearchInstanceType" :: Maybe (SearchInstanceType) , "SearchPartitionCount" :: Maybe (PartitionCount) , "SearchInstanceCount" :: Maybe (InstanceCount) } -> {"DomainId" :: (DomainId) , "DomainName" :: (DomainName) , "Created" :: Maybe (Boolean) , "Deleted" :: Maybe (Boolean) , "NumSearchableDocs" :: Maybe (DocumentCount) , "DocService" :: Maybe (ServiceEndpoint) , "SearchService" :: Maybe (ServiceEndpoint) , "RequiresIndexDocuments" :: (Boolean) , "Processing" :: Maybe (Boolean) , "SearchInstanceType" :: Maybe (SearchInstanceType) , "SearchPartitionCount" :: Maybe (PartitionCount) , "SearchInstanceCount" :: Maybe (InstanceCount) } ) -> DomainStatus
+newDomainStatus' _DomainId _DomainName _RequiresIndexDocuments customize = (DomainStatus <<< customize) { "DomainId": _DomainId, "DomainName": _DomainName, "RequiresIndexDocuments": _RequiresIndexDocuments, "Created": Nothing, "Deleted": Nothing, "DocService": Nothing, "NumSearchableDocs": Nothing, "Processing": Nothing, "SearchInstanceCount": Nothing, "SearchInstanceType": Nothing, "SearchPartitionCount": Nothing, "SearchService": Nothing }
 
 
 
@@ -900,7 +899,7 @@ newIndexDocumentsRequest' _DomainName customize = (IndexDocumentsRequest <<< cus
 
 -- | <p>The result of an <code>IndexDocuments</code> action.</p>
 newtype IndexDocumentsResponse = IndexDocumentsResponse 
-  { "FieldNames" :: NullOrUndefined (FieldNameList)
+  { "FieldNames" :: Maybe (FieldNameList)
   }
 derive instance newtypeIndexDocumentsResponse :: Newtype IndexDocumentsResponse _
 derive instance repGenericIndexDocumentsResponse :: Generic IndexDocumentsResponse _
@@ -910,12 +909,12 @@ instance encodeIndexDocumentsResponse :: Encode IndexDocumentsResponse where enc
 
 -- | Constructs IndexDocumentsResponse from required parameters
 newIndexDocumentsResponse :: IndexDocumentsResponse
-newIndexDocumentsResponse  = IndexDocumentsResponse { "FieldNames": (NullOrUndefined Nothing) }
+newIndexDocumentsResponse  = IndexDocumentsResponse { "FieldNames": Nothing }
 
 -- | Constructs IndexDocumentsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIndexDocumentsResponse' :: ( { "FieldNames" :: NullOrUndefined (FieldNameList) } -> {"FieldNames" :: NullOrUndefined (FieldNameList) } ) -> IndexDocumentsResponse
-newIndexDocumentsResponse'  customize = (IndexDocumentsResponse <<< customize) { "FieldNames": (NullOrUndefined Nothing) }
+newIndexDocumentsResponse' :: ( { "FieldNames" :: Maybe (FieldNameList) } -> {"FieldNames" :: Maybe (FieldNameList) } ) -> IndexDocumentsResponse
+newIndexDocumentsResponse'  customize = (IndexDocumentsResponse <<< customize) { "FieldNames": Nothing }
 
 
 
@@ -923,10 +922,10 @@ newIndexDocumentsResponse'  customize = (IndexDocumentsResponse <<< customize) {
 newtype IndexField = IndexField 
   { "IndexFieldName" :: (FieldName)
   , "IndexFieldType" :: (IndexFieldType)
-  , "UIntOptions" :: NullOrUndefined (UIntOptions)
-  , "LiteralOptions" :: NullOrUndefined (LiteralOptions)
-  , "TextOptions" :: NullOrUndefined (TextOptions)
-  , "SourceAttributes" :: NullOrUndefined (SourceAttributeList)
+  , "UIntOptions" :: Maybe (UIntOptions)
+  , "LiteralOptions" :: Maybe (LiteralOptions)
+  , "TextOptions" :: Maybe (TextOptions)
+  , "SourceAttributes" :: Maybe (SourceAttributeList)
   }
 derive instance newtypeIndexField :: Newtype IndexField _
 derive instance repGenericIndexField :: Generic IndexField _
@@ -936,12 +935,12 @@ instance encodeIndexField :: Encode IndexField where encode = genericEncode opti
 
 -- | Constructs IndexField from required parameters
 newIndexField :: FieldName -> IndexFieldType -> IndexField
-newIndexField _IndexFieldName _IndexFieldType = IndexField { "IndexFieldName": _IndexFieldName, "IndexFieldType": _IndexFieldType, "LiteralOptions": (NullOrUndefined Nothing), "SourceAttributes": (NullOrUndefined Nothing), "TextOptions": (NullOrUndefined Nothing), "UIntOptions": (NullOrUndefined Nothing) }
+newIndexField _IndexFieldName _IndexFieldType = IndexField { "IndexFieldName": _IndexFieldName, "IndexFieldType": _IndexFieldType, "LiteralOptions": Nothing, "SourceAttributes": Nothing, "TextOptions": Nothing, "UIntOptions": Nothing }
 
 -- | Constructs IndexField's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newIndexField' :: FieldName -> IndexFieldType -> ( { "IndexFieldName" :: (FieldName) , "IndexFieldType" :: (IndexFieldType) , "UIntOptions" :: NullOrUndefined (UIntOptions) , "LiteralOptions" :: NullOrUndefined (LiteralOptions) , "TextOptions" :: NullOrUndefined (TextOptions) , "SourceAttributes" :: NullOrUndefined (SourceAttributeList) } -> {"IndexFieldName" :: (FieldName) , "IndexFieldType" :: (IndexFieldType) , "UIntOptions" :: NullOrUndefined (UIntOptions) , "LiteralOptions" :: NullOrUndefined (LiteralOptions) , "TextOptions" :: NullOrUndefined (TextOptions) , "SourceAttributes" :: NullOrUndefined (SourceAttributeList) } ) -> IndexField
-newIndexField' _IndexFieldName _IndexFieldType customize = (IndexField <<< customize) { "IndexFieldName": _IndexFieldName, "IndexFieldType": _IndexFieldType, "LiteralOptions": (NullOrUndefined Nothing), "SourceAttributes": (NullOrUndefined Nothing), "TextOptions": (NullOrUndefined Nothing), "UIntOptions": (NullOrUndefined Nothing) }
+newIndexField' :: FieldName -> IndexFieldType -> ( { "IndexFieldName" :: (FieldName) , "IndexFieldType" :: (IndexFieldType) , "UIntOptions" :: Maybe (UIntOptions) , "LiteralOptions" :: Maybe (LiteralOptions) , "TextOptions" :: Maybe (TextOptions) , "SourceAttributes" :: Maybe (SourceAttributeList) } -> {"IndexFieldName" :: (FieldName) , "IndexFieldType" :: (IndexFieldType) , "UIntOptions" :: Maybe (UIntOptions) , "LiteralOptions" :: Maybe (LiteralOptions) , "TextOptions" :: Maybe (TextOptions) , "SourceAttributes" :: Maybe (SourceAttributeList) } ) -> IndexField
+newIndexField' _IndexFieldName _IndexFieldType customize = (IndexField <<< customize) { "IndexFieldName": _IndexFieldName, "IndexFieldType": _IndexFieldType, "LiteralOptions": Nothing, "SourceAttributes": Nothing, "TextOptions": Nothing, "UIntOptions": Nothing }
 
 
 
@@ -1037,10 +1036,10 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | <p>Options that define a literal field in the search index.</p>
 newtype LiteralOptions = LiteralOptions 
-  { "DefaultValue" :: NullOrUndefined (FieldValue)
-  , "SearchEnabled" :: NullOrUndefined (Boolean)
-  , "FacetEnabled" :: NullOrUndefined (Boolean)
-  , "ResultEnabled" :: NullOrUndefined (Boolean)
+  { "DefaultValue" :: Maybe (FieldValue)
+  , "SearchEnabled" :: Maybe (Boolean)
+  , "FacetEnabled" :: Maybe (Boolean)
+  , "ResultEnabled" :: Maybe (Boolean)
   }
 derive instance newtypeLiteralOptions :: Newtype LiteralOptions _
 derive instance repGenericLiteralOptions :: Generic LiteralOptions _
@@ -1050,12 +1049,12 @@ instance encodeLiteralOptions :: Encode LiteralOptions where encode = genericEnc
 
 -- | Constructs LiteralOptions from required parameters
 newLiteralOptions :: LiteralOptions
-newLiteralOptions  = LiteralOptions { "DefaultValue": (NullOrUndefined Nothing), "FacetEnabled": (NullOrUndefined Nothing), "ResultEnabled": (NullOrUndefined Nothing), "SearchEnabled": (NullOrUndefined Nothing) }
+newLiteralOptions  = LiteralOptions { "DefaultValue": Nothing, "FacetEnabled": Nothing, "ResultEnabled": Nothing, "SearchEnabled": Nothing }
 
 -- | Constructs LiteralOptions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLiteralOptions' :: ( { "DefaultValue" :: NullOrUndefined (FieldValue) , "SearchEnabled" :: NullOrUndefined (Boolean) , "FacetEnabled" :: NullOrUndefined (Boolean) , "ResultEnabled" :: NullOrUndefined (Boolean) } -> {"DefaultValue" :: NullOrUndefined (FieldValue) , "SearchEnabled" :: NullOrUndefined (Boolean) , "FacetEnabled" :: NullOrUndefined (Boolean) , "ResultEnabled" :: NullOrUndefined (Boolean) } ) -> LiteralOptions
-newLiteralOptions'  customize = (LiteralOptions <<< customize) { "DefaultValue": (NullOrUndefined Nothing), "FacetEnabled": (NullOrUndefined Nothing), "ResultEnabled": (NullOrUndefined Nothing), "SearchEnabled": (NullOrUndefined Nothing) }
+newLiteralOptions' :: ( { "DefaultValue" :: Maybe (FieldValue) , "SearchEnabled" :: Maybe (Boolean) , "FacetEnabled" :: Maybe (Boolean) , "ResultEnabled" :: Maybe (Boolean) } -> {"DefaultValue" :: Maybe (FieldValue) , "SearchEnabled" :: Maybe (Boolean) , "FacetEnabled" :: Maybe (Boolean) , "ResultEnabled" :: Maybe (Boolean) } ) -> LiteralOptions
+newLiteralOptions'  customize = (LiteralOptions <<< customize) { "DefaultValue": Nothing, "FacetEnabled": Nothing, "ResultEnabled": Nothing, "SearchEnabled": Nothing }
 
 
 
@@ -1104,9 +1103,9 @@ instance encodeOptionState :: Encode OptionState where encode = genericEncode op
 newtype OptionStatus = OptionStatus 
   { "CreationDate" :: (UpdateTimestamp)
   , "UpdateDate" :: (UpdateTimestamp)
-  , "UpdateVersion" :: NullOrUndefined (UIntValue)
+  , "UpdateVersion" :: Maybe (UIntValue)
   , "State" :: (OptionState)
-  , "PendingDeletion" :: NullOrUndefined (Boolean)
+  , "PendingDeletion" :: Maybe (Boolean)
   }
 derive instance newtypeOptionStatus :: Newtype OptionStatus _
 derive instance repGenericOptionStatus :: Generic OptionStatus _
@@ -1116,12 +1115,12 @@ instance encodeOptionStatus :: Encode OptionStatus where encode = genericEncode 
 
 -- | Constructs OptionStatus from required parameters
 newOptionStatus :: UpdateTimestamp -> OptionState -> UpdateTimestamp -> OptionStatus
-newOptionStatus _CreationDate _State _UpdateDate = OptionStatus { "CreationDate": _CreationDate, "State": _State, "UpdateDate": _UpdateDate, "PendingDeletion": (NullOrUndefined Nothing), "UpdateVersion": (NullOrUndefined Nothing) }
+newOptionStatus _CreationDate _State _UpdateDate = OptionStatus { "CreationDate": _CreationDate, "State": _State, "UpdateDate": _UpdateDate, "PendingDeletion": Nothing, "UpdateVersion": Nothing }
 
 -- | Constructs OptionStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newOptionStatus' :: UpdateTimestamp -> OptionState -> UpdateTimestamp -> ( { "CreationDate" :: (UpdateTimestamp) , "UpdateDate" :: (UpdateTimestamp) , "UpdateVersion" :: NullOrUndefined (UIntValue) , "State" :: (OptionState) , "PendingDeletion" :: NullOrUndefined (Boolean) } -> {"CreationDate" :: (UpdateTimestamp) , "UpdateDate" :: (UpdateTimestamp) , "UpdateVersion" :: NullOrUndefined (UIntValue) , "State" :: (OptionState) , "PendingDeletion" :: NullOrUndefined (Boolean) } ) -> OptionStatus
-newOptionStatus' _CreationDate _State _UpdateDate customize = (OptionStatus <<< customize) { "CreationDate": _CreationDate, "State": _State, "UpdateDate": _UpdateDate, "PendingDeletion": (NullOrUndefined Nothing), "UpdateVersion": (NullOrUndefined Nothing) }
+newOptionStatus' :: UpdateTimestamp -> OptionState -> UpdateTimestamp -> ( { "CreationDate" :: (UpdateTimestamp) , "UpdateDate" :: (UpdateTimestamp) , "UpdateVersion" :: Maybe (UIntValue) , "State" :: (OptionState) , "PendingDeletion" :: Maybe (Boolean) } -> {"CreationDate" :: (UpdateTimestamp) , "UpdateDate" :: (UpdateTimestamp) , "UpdateVersion" :: Maybe (UIntValue) , "State" :: (OptionState) , "PendingDeletion" :: Maybe (Boolean) } ) -> OptionStatus
+newOptionStatus' _CreationDate _State _UpdateDate customize = (OptionStatus <<< customize) { "CreationDate": _CreationDate, "State": _State, "UpdateDate": _UpdateDate, "PendingDeletion": Nothing, "UpdateVersion": Nothing }
 
 
 
@@ -1206,8 +1205,8 @@ instance encodeSearchInstanceType :: Encode SearchInstanceType where encode = ge
 
 -- | <p>The endpoint to which service requests can be submitted, including the actual URL prefix for sending requests and the Amazon Resource Name (ARN) so the endpoint can be referenced in other API calls such as <a>UpdateServiceAccessPolicies</a>.</p>
 newtype ServiceEndpoint = ServiceEndpoint 
-  { "Arn" :: NullOrUndefined (Arn)
-  , "Endpoint" :: NullOrUndefined (ServiceUrl)
+  { "Arn" :: Maybe (Arn)
+  , "Endpoint" :: Maybe (ServiceUrl)
   }
 derive instance newtypeServiceEndpoint :: Newtype ServiceEndpoint _
 derive instance repGenericServiceEndpoint :: Generic ServiceEndpoint _
@@ -1217,12 +1216,12 @@ instance encodeServiceEndpoint :: Encode ServiceEndpoint where encode = genericE
 
 -- | Constructs ServiceEndpoint from required parameters
 newServiceEndpoint :: ServiceEndpoint
-newServiceEndpoint  = ServiceEndpoint { "Arn": (NullOrUndefined Nothing), "Endpoint": (NullOrUndefined Nothing) }
+newServiceEndpoint  = ServiceEndpoint { "Arn": Nothing, "Endpoint": Nothing }
 
 -- | Constructs ServiceEndpoint's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceEndpoint' :: ( { "Arn" :: NullOrUndefined (Arn) , "Endpoint" :: NullOrUndefined (ServiceUrl) } -> {"Arn" :: NullOrUndefined (Arn) , "Endpoint" :: NullOrUndefined (ServiceUrl) } ) -> ServiceEndpoint
-newServiceEndpoint'  customize = (ServiceEndpoint <<< customize) { "Arn": (NullOrUndefined Nothing), "Endpoint": (NullOrUndefined Nothing) }
+newServiceEndpoint' :: ( { "Arn" :: Maybe (Arn) , "Endpoint" :: Maybe (ServiceUrl) } -> {"Arn" :: Maybe (Arn) , "Endpoint" :: Maybe (ServiceUrl) } ) -> ServiceEndpoint
+newServiceEndpoint'  customize = (ServiceEndpoint <<< customize) { "Arn": Nothing, "Endpoint": Nothing }
 
 
 
@@ -1239,9 +1238,9 @@ instance encodeServiceUrl :: Encode ServiceUrl where encode = genericEncode opti
 -- | <p>Identifies the source data for an index field. An optional data transformation can be applied to the source data when populating the index field. By default, the value of the source attribute is copied to the index field.</p>
 newtype SourceAttribute = SourceAttribute 
   { "SourceDataFunction" :: (SourceDataFunction)
-  , "SourceDataCopy" :: NullOrUndefined (SourceData)
-  , "SourceDataTrimTitle" :: NullOrUndefined (SourceDataTrimTitle)
-  , "SourceDataMap" :: NullOrUndefined (SourceDataMap)
+  , "SourceDataCopy" :: Maybe (SourceData)
+  , "SourceDataTrimTitle" :: Maybe (SourceDataTrimTitle)
+  , "SourceDataMap" :: Maybe (SourceDataMap)
   }
 derive instance newtypeSourceAttribute :: Newtype SourceAttribute _
 derive instance repGenericSourceAttribute :: Generic SourceAttribute _
@@ -1251,12 +1250,12 @@ instance encodeSourceAttribute :: Encode SourceAttribute where encode = genericE
 
 -- | Constructs SourceAttribute from required parameters
 newSourceAttribute :: SourceDataFunction -> SourceAttribute
-newSourceAttribute _SourceDataFunction = SourceAttribute { "SourceDataFunction": _SourceDataFunction, "SourceDataCopy": (NullOrUndefined Nothing), "SourceDataMap": (NullOrUndefined Nothing), "SourceDataTrimTitle": (NullOrUndefined Nothing) }
+newSourceAttribute _SourceDataFunction = SourceAttribute { "SourceDataFunction": _SourceDataFunction, "SourceDataCopy": Nothing, "SourceDataMap": Nothing, "SourceDataTrimTitle": Nothing }
 
 -- | Constructs SourceAttribute's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSourceAttribute' :: SourceDataFunction -> ( { "SourceDataFunction" :: (SourceDataFunction) , "SourceDataCopy" :: NullOrUndefined (SourceData) , "SourceDataTrimTitle" :: NullOrUndefined (SourceDataTrimTitle) , "SourceDataMap" :: NullOrUndefined (SourceDataMap) } -> {"SourceDataFunction" :: (SourceDataFunction) , "SourceDataCopy" :: NullOrUndefined (SourceData) , "SourceDataTrimTitle" :: NullOrUndefined (SourceDataTrimTitle) , "SourceDataMap" :: NullOrUndefined (SourceDataMap) } ) -> SourceAttribute
-newSourceAttribute' _SourceDataFunction customize = (SourceAttribute <<< customize) { "SourceDataFunction": _SourceDataFunction, "SourceDataCopy": (NullOrUndefined Nothing), "SourceDataMap": (NullOrUndefined Nothing), "SourceDataTrimTitle": (NullOrUndefined Nothing) }
+newSourceAttribute' :: SourceDataFunction -> ( { "SourceDataFunction" :: (SourceDataFunction) , "SourceDataCopy" :: Maybe (SourceData) , "SourceDataTrimTitle" :: Maybe (SourceDataTrimTitle) , "SourceDataMap" :: Maybe (SourceDataMap) } -> {"SourceDataFunction" :: (SourceDataFunction) , "SourceDataCopy" :: Maybe (SourceData) , "SourceDataTrimTitle" :: Maybe (SourceDataTrimTitle) , "SourceDataMap" :: Maybe (SourceDataMap) } ) -> SourceAttribute
+newSourceAttribute' _SourceDataFunction customize = (SourceAttribute <<< customize) { "SourceDataFunction": _SourceDataFunction, "SourceDataCopy": Nothing, "SourceDataMap": Nothing, "SourceDataTrimTitle": Nothing }
 
 
 
@@ -1272,7 +1271,7 @@ instance encodeSourceAttributeList :: Encode SourceAttributeList where encode = 
 -- | <p>The source attribute name and an optional default value to use if a document doesn't have an attribute of that name.</p>
 newtype SourceData = SourceData 
   { "SourceName" :: (FieldName)
-  , "DefaultValue" :: NullOrUndefined (FieldValue)
+  , "DefaultValue" :: Maybe (FieldValue)
   }
 derive instance newtypeSourceData :: Newtype SourceData _
 derive instance repGenericSourceData :: Generic SourceData _
@@ -1282,12 +1281,12 @@ instance encodeSourceData :: Encode SourceData where encode = genericEncode opti
 
 -- | Constructs SourceData from required parameters
 newSourceData :: FieldName -> SourceData
-newSourceData _SourceName = SourceData { "SourceName": _SourceName, "DefaultValue": (NullOrUndefined Nothing) }
+newSourceData _SourceName = SourceData { "SourceName": _SourceName, "DefaultValue": Nothing }
 
 -- | Constructs SourceData's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSourceData' :: FieldName -> ( { "SourceName" :: (FieldName) , "DefaultValue" :: NullOrUndefined (FieldValue) } -> {"SourceName" :: (FieldName) , "DefaultValue" :: NullOrUndefined (FieldValue) } ) -> SourceData
-newSourceData' _SourceName customize = (SourceData <<< customize) { "SourceName": _SourceName, "DefaultValue": (NullOrUndefined Nothing) }
+newSourceData' :: FieldName -> ( { "SourceName" :: (FieldName) , "DefaultValue" :: Maybe (FieldValue) } -> {"SourceName" :: (FieldName) , "DefaultValue" :: Maybe (FieldValue) } ) -> SourceData
+newSourceData' _SourceName customize = (SourceData <<< customize) { "SourceName": _SourceName, "DefaultValue": Nothing }
 
 
 
@@ -1303,8 +1302,8 @@ instance encodeSourceDataFunction :: Encode SourceDataFunction where encode = ge
 -- | <p>Specifies how to map source attribute values to custom values when populating an <code>IndexField</code>.</p>
 newtype SourceDataMap = SourceDataMap 
   { "SourceName" :: (FieldName)
-  , "DefaultValue" :: NullOrUndefined (FieldValue)
-  , "Cases" :: NullOrUndefined (StringCaseMap)
+  , "DefaultValue" :: Maybe (FieldValue)
+  , "Cases" :: Maybe (StringCaseMap)
   }
 derive instance newtypeSourceDataMap :: Newtype SourceDataMap _
 derive instance repGenericSourceDataMap :: Generic SourceDataMap _
@@ -1314,21 +1313,21 @@ instance encodeSourceDataMap :: Encode SourceDataMap where encode = genericEncod
 
 -- | Constructs SourceDataMap from required parameters
 newSourceDataMap :: FieldName -> SourceDataMap
-newSourceDataMap _SourceName = SourceDataMap { "SourceName": _SourceName, "Cases": (NullOrUndefined Nothing), "DefaultValue": (NullOrUndefined Nothing) }
+newSourceDataMap _SourceName = SourceDataMap { "SourceName": _SourceName, "Cases": Nothing, "DefaultValue": Nothing }
 
 -- | Constructs SourceDataMap's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSourceDataMap' :: FieldName -> ( { "SourceName" :: (FieldName) , "DefaultValue" :: NullOrUndefined (FieldValue) , "Cases" :: NullOrUndefined (StringCaseMap) } -> {"SourceName" :: (FieldName) , "DefaultValue" :: NullOrUndefined (FieldValue) , "Cases" :: NullOrUndefined (StringCaseMap) } ) -> SourceDataMap
-newSourceDataMap' _SourceName customize = (SourceDataMap <<< customize) { "SourceName": _SourceName, "Cases": (NullOrUndefined Nothing), "DefaultValue": (NullOrUndefined Nothing) }
+newSourceDataMap' :: FieldName -> ( { "SourceName" :: (FieldName) , "DefaultValue" :: Maybe (FieldValue) , "Cases" :: Maybe (StringCaseMap) } -> {"SourceName" :: (FieldName) , "DefaultValue" :: Maybe (FieldValue) , "Cases" :: Maybe (StringCaseMap) } ) -> SourceDataMap
+newSourceDataMap' _SourceName customize = (SourceDataMap <<< customize) { "SourceName": _SourceName, "Cases": Nothing, "DefaultValue": Nothing }
 
 
 
 -- | <p>Specifies how to trim common words from the beginning of a field to enable title sorting by that field.</p>
 newtype SourceDataTrimTitle = SourceDataTrimTitle 
   { "SourceName" :: (FieldName)
-  , "DefaultValue" :: NullOrUndefined (FieldValue)
-  , "Separator" :: NullOrUndefined (String)
-  , "Language" :: NullOrUndefined (Language)
+  , "DefaultValue" :: Maybe (FieldValue)
+  , "Separator" :: Maybe (String)
+  , "Language" :: Maybe (Language)
   }
 derive instance newtypeSourceDataTrimTitle :: Newtype SourceDataTrimTitle _
 derive instance repGenericSourceDataTrimTitle :: Generic SourceDataTrimTitle _
@@ -1338,12 +1337,12 @@ instance encodeSourceDataTrimTitle :: Encode SourceDataTrimTitle where encode = 
 
 -- | Constructs SourceDataTrimTitle from required parameters
 newSourceDataTrimTitle :: FieldName -> SourceDataTrimTitle
-newSourceDataTrimTitle _SourceName = SourceDataTrimTitle { "SourceName": _SourceName, "DefaultValue": (NullOrUndefined Nothing), "Language": (NullOrUndefined Nothing), "Separator": (NullOrUndefined Nothing) }
+newSourceDataTrimTitle _SourceName = SourceDataTrimTitle { "SourceName": _SourceName, "DefaultValue": Nothing, "Language": Nothing, "Separator": Nothing }
 
 -- | Constructs SourceDataTrimTitle's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSourceDataTrimTitle' :: FieldName -> ( { "SourceName" :: (FieldName) , "DefaultValue" :: NullOrUndefined (FieldValue) , "Separator" :: NullOrUndefined (String) , "Language" :: NullOrUndefined (Language) } -> {"SourceName" :: (FieldName) , "DefaultValue" :: NullOrUndefined (FieldValue) , "Separator" :: NullOrUndefined (String) , "Language" :: NullOrUndefined (Language) } ) -> SourceDataTrimTitle
-newSourceDataTrimTitle' _SourceName customize = (SourceDataTrimTitle <<< customize) { "SourceName": _SourceName, "DefaultValue": (NullOrUndefined Nothing), "Language": (NullOrUndefined Nothing), "Separator": (NullOrUndefined Nothing) }
+newSourceDataTrimTitle' :: FieldName -> ( { "SourceName" :: (FieldName) , "DefaultValue" :: Maybe (FieldValue) , "Separator" :: Maybe (String) , "Language" :: Maybe (Language) } -> {"SourceName" :: (FieldName) , "DefaultValue" :: Maybe (FieldValue) , "Separator" :: Maybe (String) , "Language" :: Maybe (Language) } ) -> SourceDataTrimTitle
+newSourceDataTrimTitle' _SourceName customize = (SourceDataTrimTitle <<< customize) { "SourceName": _SourceName, "DefaultValue": Nothing, "Language": Nothing, "Separator": Nothing }
 
 
 
@@ -1454,10 +1453,10 @@ instance encodeSynonymsDocument :: Encode SynonymsDocument where encode = generi
 
 -- | <p>Options that define a text field in the search index.</p>
 newtype TextOptions = TextOptions 
-  { "DefaultValue" :: NullOrUndefined (FieldValue)
-  , "FacetEnabled" :: NullOrUndefined (Boolean)
-  , "ResultEnabled" :: NullOrUndefined (Boolean)
-  , "TextProcessor" :: NullOrUndefined (FieldName)
+  { "DefaultValue" :: Maybe (FieldValue)
+  , "FacetEnabled" :: Maybe (Boolean)
+  , "ResultEnabled" :: Maybe (Boolean)
+  , "TextProcessor" :: Maybe (FieldName)
   }
 derive instance newtypeTextOptions :: Newtype TextOptions _
 derive instance repGenericTextOptions :: Generic TextOptions _
@@ -1467,18 +1466,18 @@ instance encodeTextOptions :: Encode TextOptions where encode = genericEncode op
 
 -- | Constructs TextOptions from required parameters
 newTextOptions :: TextOptions
-newTextOptions  = TextOptions { "DefaultValue": (NullOrUndefined Nothing), "FacetEnabled": (NullOrUndefined Nothing), "ResultEnabled": (NullOrUndefined Nothing), "TextProcessor": (NullOrUndefined Nothing) }
+newTextOptions  = TextOptions { "DefaultValue": Nothing, "FacetEnabled": Nothing, "ResultEnabled": Nothing, "TextProcessor": Nothing }
 
 -- | Constructs TextOptions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTextOptions' :: ( { "DefaultValue" :: NullOrUndefined (FieldValue) , "FacetEnabled" :: NullOrUndefined (Boolean) , "ResultEnabled" :: NullOrUndefined (Boolean) , "TextProcessor" :: NullOrUndefined (FieldName) } -> {"DefaultValue" :: NullOrUndefined (FieldValue) , "FacetEnabled" :: NullOrUndefined (Boolean) , "ResultEnabled" :: NullOrUndefined (Boolean) , "TextProcessor" :: NullOrUndefined (FieldName) } ) -> TextOptions
-newTextOptions'  customize = (TextOptions <<< customize) { "DefaultValue": (NullOrUndefined Nothing), "FacetEnabled": (NullOrUndefined Nothing), "ResultEnabled": (NullOrUndefined Nothing), "TextProcessor": (NullOrUndefined Nothing) }
+newTextOptions' :: ( { "DefaultValue" :: Maybe (FieldValue) , "FacetEnabled" :: Maybe (Boolean) , "ResultEnabled" :: Maybe (Boolean) , "TextProcessor" :: Maybe (FieldName) } -> {"DefaultValue" :: Maybe (FieldValue) , "FacetEnabled" :: Maybe (Boolean) , "ResultEnabled" :: Maybe (Boolean) , "TextProcessor" :: Maybe (FieldName) } ) -> TextOptions
+newTextOptions'  customize = (TextOptions <<< customize) { "DefaultValue": Nothing, "FacetEnabled": Nothing, "ResultEnabled": Nothing, "TextProcessor": Nothing }
 
 
 
 -- | <p>Options that define a <code>uint</code> field in the search index.</p>
 newtype UIntOptions = UIntOptions 
-  { "DefaultValue" :: NullOrUndefined (UIntValue)
+  { "DefaultValue" :: Maybe (UIntValue)
   }
 derive instance newtypeUIntOptions :: Newtype UIntOptions _
 derive instance repGenericUIntOptions :: Generic UIntOptions _
@@ -1488,12 +1487,12 @@ instance encodeUIntOptions :: Encode UIntOptions where encode = genericEncode op
 
 -- | Constructs UIntOptions from required parameters
 newUIntOptions :: UIntOptions
-newUIntOptions  = UIntOptions { "DefaultValue": (NullOrUndefined Nothing) }
+newUIntOptions  = UIntOptions { "DefaultValue": Nothing }
 
 -- | Constructs UIntOptions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUIntOptions' :: ( { "DefaultValue" :: NullOrUndefined (UIntValue) } -> {"DefaultValue" :: NullOrUndefined (UIntValue) } ) -> UIntOptions
-newUIntOptions'  customize = (UIntOptions <<< customize) { "DefaultValue": (NullOrUndefined Nothing) }
+newUIntOptions' :: ( { "DefaultValue" :: Maybe (UIntValue) } -> {"DefaultValue" :: Maybe (UIntValue) } ) -> UIntOptions
+newUIntOptions'  customize = (UIntOptions <<< customize) { "DefaultValue": Nothing }
 
 
 
@@ -1530,7 +1529,7 @@ newUpdateAvailabilityOptionsRequest' _DomainName _MultiAZ customize = (UpdateAva
 
 -- | <p>The result of a <code>UpdateAvailabilityOptions</code> request. Contains the status of the domain's availability options. </p>
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse 
-  { "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus)
+  { "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus)
   }
 derive instance newtypeUpdateAvailabilityOptionsResponse :: Newtype UpdateAvailabilityOptionsResponse _
 derive instance repGenericUpdateAvailabilityOptionsResponse :: Generic UpdateAvailabilityOptionsResponse _
@@ -1540,12 +1539,12 @@ instance encodeUpdateAvailabilityOptionsResponse :: Encode UpdateAvailabilityOpt
 
 -- | Constructs UpdateAvailabilityOptionsResponse from required parameters
 newUpdateAvailabilityOptionsResponse :: UpdateAvailabilityOptionsResponse
-newUpdateAvailabilityOptionsResponse  = UpdateAvailabilityOptionsResponse { "AvailabilityOptions": (NullOrUndefined Nothing) }
+newUpdateAvailabilityOptionsResponse  = UpdateAvailabilityOptionsResponse { "AvailabilityOptions": Nothing }
 
 -- | Constructs UpdateAvailabilityOptionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateAvailabilityOptionsResponse' :: ( { "AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) } -> {"AvailabilityOptions" :: NullOrUndefined (AvailabilityOptionsStatus) } ) -> UpdateAvailabilityOptionsResponse
-newUpdateAvailabilityOptionsResponse'  customize = (UpdateAvailabilityOptionsResponse <<< customize) { "AvailabilityOptions": (NullOrUndefined Nothing) }
+newUpdateAvailabilityOptionsResponse' :: ( { "AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) } -> {"AvailabilityOptions" :: Maybe (AvailabilityOptionsStatus) } ) -> UpdateAvailabilityOptionsResponse
+newUpdateAvailabilityOptionsResponse'  customize = (UpdateAvailabilityOptionsResponse <<< customize) { "AvailabilityOptions": Nothing }
 
 
 
